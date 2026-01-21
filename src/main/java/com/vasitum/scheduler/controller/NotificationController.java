@@ -39,4 +39,10 @@ public class NotificationController {
         notificationService.retryFailedNotifications();
         return ResponseEntity.ok("Failed notifications retried");
     }
+    
+    @GetMapping("/booked-slots")
+    public ResponseEntity<List<Notification>> getAllBookedSlotNotifications() {
+        List<Notification> notifications = notificationService.getAllBookedSlotNotifications();
+        return ResponseEntity.ok(notifications);
+    }
 }

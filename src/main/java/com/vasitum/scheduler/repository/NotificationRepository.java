@@ -29,4 +29,7 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     
     @Query("SELECT COUNT(n) FROM Notification n WHERE n.status = :status")
     Long countByStatus(@Param("status") Notification.NotificationStatus status);
+    
+    @Query("SELECT n FROM Notification n WHERE n.interviewSlotId IS NOT NULL ORDER BY n.createdAt DESC")
+    List<Notification> findAllBookedSlotNotifications();
 }

@@ -242,4 +242,9 @@ public class NotificationService {
     public List<Notification> getNotificationsBySlot(Long slotId) {
         return notificationRepository.findByInterviewSlotId(slotId);
     }
+    
+    @Transactional(readOnly = true)
+    public List<Notification> getAllBookedSlotNotifications() {
+        return notificationRepository.findAllBookedSlotNotifications();
+    }
 }
